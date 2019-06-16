@@ -1,0 +1,49 @@
+@import "var.scss";
+@import "mixin.scss";
+
+.box{
+  width: 100px;
+  height: 100px;
+  background: $color;
+  @include center;
+}
+.son{
+  width: 50px;
+  height: 50px;
+  background: $color;
+  color: $color;
+}
+
+p{
+  font : initial bold 20px/20px 微软雅黑;
+  color: $color;
+}
+
+p{
+  @if $color == red{
+    color:red;
+  }@else if $color == green{
+    color:green;
+}
+}
+
+@for $i from 1 through 12{
+  .col-#{$i}{
+    width: $i / 12 *100%;
+  }
+}
+
+//数组定义(空格或者逗号隔开)
+$bg :l1 l2 ;
+
+/*.1{
+  background:url("../img/l1.jpg");
+}*/
+//插值
+@each $i in $bg{
+  .#{$i}{
+    background:url("../img/#{$i}.jpg");
+  }
+}
+
+
